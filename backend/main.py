@@ -15,7 +15,8 @@ app = FastAPI()
 # 1. Configure CORS (To allow your React app to talk to this backend)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"], # Add your frontend URL
+    # Add "http://localhost:8080" to this list
+    allow_origins=["http://localhost:5173", "http://localhost:3000", "http://localhost:8080"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
