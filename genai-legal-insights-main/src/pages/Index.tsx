@@ -51,7 +51,7 @@ const Index = () => {
       formData.append('settings', JSON.stringify(settings));
 
       // API call to backend
-      const response = await fetch('https://legal-mini.onrender.com', {
+      const response = await fetch('https://legal-mini.onrender.com/analyze', {
         method: 'POST',
         body: formData,
       });
