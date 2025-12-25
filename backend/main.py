@@ -13,10 +13,12 @@ load_dotenv()
 app = FastAPI()
 
 # 1. Configure CORS (To allow your React app to talk to this backend)
+# backend/main.py
+
 app.add_middleware(
     CORSMiddleware,
-    # Add "http://localhost:8080" to this list
-    allow_origins=["http://localhost:5173", "http://localhost:3000", "http://localhost:8080"], 
+    # CHANGE THIS LINE: Allow all origins to rule out port mismatches
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,7 +30,7 @@ if not GENAI_API_KEY:
     raise ValueError("GEMINI_API_KEY not found in environment variables")
 
 genai.configure(api_key=GENAI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash') # Flash is faster/cheaper for this
+model = genai.GenerativeModel('gemini-flash-latest') # Flash is faster/cheaper for this# Flash is faster/cheaper for this
 
 def extract_text_from_pdf(file_file):
     try:

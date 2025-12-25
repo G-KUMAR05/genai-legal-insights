@@ -12,6 +12,20 @@ dist
 dist-ssr
 *.local
 
+# Secrets (CRITICAL - ADD THIS!)
+.env
+.env.local
+backend/.env
+
+# Python Backend (ADD THIS!)
+__pycache__/
+*.pyc
+.venv/
+venv/
+backend/__pycache__/
+backend/.venv/
+backend/venv/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
